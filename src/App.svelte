@@ -1,26 +1,59 @@
 <script lang="ts">
-	import Home from "./routes/Home.svelte";
-	import Page from "./routes/Page.svelte";
-	import NoMatch from "./elements/NoMatch.svelte";
+	import Framework7Svelte, { App as F7App, View } from "framework7-svelte";
+	import Framework7 from 'framework7';
+	import {Api, HttpClient} from "tonapi-sdk-js";
 
-	import { Router, Route } from "svelte-routing";
+	import { Home } from "./pages/home";
+	import { Account } from "./pages/account";
 
-	export let url: string = "";
+	Framework7.use(Framework7Svelte);
+
+	const httpClient = new HttpClient({
+	  baseUrl: import.meta.env.VITE_API_HOST,
+	  baseApiParams: {
+		  headers: {
+			  'Content-type': 'application/json'
+		  }
+	  }
+	});
+
+	const client = new Api(httpClient);
+
+	const f7params = {
+		name: 'TonView Svelte',
+		theme: 'ios',
+		darkMode: true,
+		routes: [
+			{
+				path: '/',
+				component: Home,
+			},
+			{
+				path: '/:accountId',
+				component: Account,
+				options: {
+					props: {
+						client: client
+					}
+				}
+			},
+			{
+				path: '(.*)',
+				component: Home,
+			}
+		],
+	}
 </script>
 
-<svelte:head>
-	{#if import.meta.env.PROD}
-	<!-- html that will be added to the production -->
-	<!-- <script ... /> -->
-	{/if}
-</svelte:head>
-
-<Router {url}>
-	<main class="select-none">
-		<Route patth="*"><NoMatch /></Route>
-		<Route path="/"><Home /></Route>
-		<Route path="/page/:slug" let:params>
-			<Page slug={params.slug} />
-		</Route>
-	</main>
-</Router>
+<F7App { ...f7params }>
+  <View
+    main
+	url="/"
+	iosSwipeBack={true}
+	preloadPreviousPage={false}
+	browserHistory={true}
+	browserHistoryRoot={''}
+	browserHistorySeparator={''}
+	browserHistoryAnimateOnLoad={true}
+  />
+</F7App>

@@ -1,5 +1,5 @@
 {
-  "name": "svelte-app",
+  "name": "tonview-svelte",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -12,7 +12,6 @@
     "@sveltejs/vite-plugin-svelte": "^3.1.0",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
-    "svelte": "^4.2.14",
     "tailwindcss": "^3.4.3",
     "terser": "^5.31.1",
     "vite": "^5.3.1"
@@ -20,7 +19,12 @@
   "dependencies": {
     "cssnano": "^7.0.2",
     "dotenv": "^16.4.4",
+    "framework7": "^8.3.3",
+    "framework7-icons": "^5.0.5",
+    "framework7-svelte": "^8.3.3",
     "sass": "^1.77.5",
-    "svelte-routing": "^2.13.0"
+    "svelte": "^4.2.14",
+    "swiper": "^11.1.4",
+    "tonapi-sdk-js": "^1.0.11"
   }
 }
