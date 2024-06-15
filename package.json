@@ -23,7 +23,7 @@
     "framework7-icons": "^5.0.5",
     "framework7-svelte": "^8.3.3",
     "sass": "^1.77.5",
-    "svelte": "^4.2.14",
+    "svelte": "^4.2.18",
     "swiper": "^11.1.4",
     "tonapi-sdk-js": "^1.0.11"
   }
