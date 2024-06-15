@@ -12,8 +12,7 @@ export default defineConfig({
             ecma: 2020,
             compress: {
                 unsafe: true,
-                drop_console: true,
-                booleans_as_integers: true
+                drop_console: true
             },
             format: {
                 ascii_only: true
