@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Framework7Svelte, { App as F7App, View } from "framework7-svelte";
 	import Framework7 from 'framework7';
+	import "framework7/css/bundle";
+
 	import {Api, HttpClient} from "tonapi-sdk-js";
 
 	import { Home } from "./pages/home";
