@@ -17,7 +17,7 @@
     "vite": "^5.3.1"
   },
   "dependencies": {
-    "cssnano": "^7.0.2",
+    "cssnano": "^7.0.3",
     "dotenv": "^16.4.4",
     "framework7": "^8.3.3",
     "framework7-icons": "^5.0.5",
